@@ -84,7 +84,7 @@
             align-items: center;
         }
 
-        /* Monochromatic Pill Buttons / Span Indicators */
+        /* Monochromatic Pill Buttons */
         .btn-pill {
             background-color: var(--accent-black);
             color: var(--accent-white);
@@ -222,8 +222,14 @@
             fill: none;
         }
 
+        /* Accessible visually-hidden input (safely maintains label-to-input click triggers on iOS/Safari) */
         .file-input {
-            display: none;
+            display: block;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
         }
 
         /* Document details workspace section */
@@ -576,7 +582,7 @@
             <h1 class="panel-title">Verify Policies</h1>
             <p class="panel-subtitle">Upload your draft corporate agreements, policy guidelines, or contracts to spot risks and retrieve compliance revisions.</p>
 
-            <!-- File dropzone (Full container natively triggers File Dialog) -->
+            <!-- File dropzone (Full container natively triggers File Dialog via Label) -->
             <label class="upload-container" id="drop-area" for="file-input">
                 <div class="upload-icon">
                     <svg viewBox="0 0 24 24">
